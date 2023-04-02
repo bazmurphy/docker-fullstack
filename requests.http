@@ -1,0 +1,25 @@
+###
+get http://localhost:3000/
+
+###
+get http://localhost:3000/1
+
+###
+post http://localhost:3000/
+Content-Type: application/json
+
+{
+  "author": "Baz",
+  "message": "How are you?"
+}
+
+###
+put http://localhost:3000/2
+Content-Type: application/json
+
+{
+  "message": "Hello I am an AI"
+}
+
+###
+delete http://localhost:3000/3
