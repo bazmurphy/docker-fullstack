@@ -32,9 +32,19 @@ app.get('/', (req, res) => {
 
 app.get('/:id', (req, res) => {
   const data = readFromDatabase();
-
   const paramsId = Number(req.params.id);
+  console.log("paramsId:", paramsId);
   const message = data.find((message) => message.id === paramsId);
+  console.log("message:", message);
+
+  if (!message) {
+    res.status(400).json({
+      success: false,
+      info: `no message with id ${paramsId} found`,
+      data: []
+    })
+    return;
+  }
 
   res.status(200).json({
     success: true,
@@ -66,6 +76,16 @@ app.put('/:id', (req, res) => {
 
   const paramsId = Number(req.params.id);
   const indexOfMessageInData = data.findIndex((message) => message.id === paramsId);
+
+  if (indexOfMessageInData === -1) {
+    res.status(400).json({
+      success: false,
+      info: `no message with id ${paramsId} found to update`,
+      data: []
+    })
+    return;
+  }
+
   const { message } = req.body;
   data[indexOfMessageInData] = { ...data[indexOfMessageInData], message: message };
 
