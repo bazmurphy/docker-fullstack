@@ -2,6 +2,8 @@
 FROM node:18-alpine
 
 # this creates a subfolder in the image where everything will be run from
+# every instruction uses this working directory
+# when we run commands on the image to do it from this working directory
 WORKDIR /app
 
 # this copies the files from the root directory to the working directory of the image
@@ -16,6 +18,7 @@ RUN npm install
 EXPOSE 3000
 
 # we want to RUN node server.js when we are INSIDE THE CONTAINER (not when we are bulding the Image)
+# the format is an array of strings in double quotes
 CMD ["node", "server.js"]
 
 # we then build the image with:

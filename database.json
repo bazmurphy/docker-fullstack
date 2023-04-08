@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "author": "Baz",
+    "message": "Hello"
+  },
+  {
+    "id": 2,
+    "author": "Person 2",
+    "message": "Hey"
+  },
+  {
+    "id": 3,
+    "author": "Baz",
+    "message": "How are you?"
+  },
+  {
+    "id": 4,
+    "author": "Person 2",
+    "message": "I'm good, Thank you"
+  },
+  {
+    "id": 5,
+    "author": "Baz",
+    "message": ":)"
+  }
+]
