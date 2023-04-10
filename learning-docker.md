@@ -206,3 +206,17 @@ you can add on the flags
 Each folder must have it's own `Dockerfile` and its own specific instructions
 In the root of the directory we create the `docker-compose.yaml`
 And there we can specify the process for building the images and running the containers on both backend and frontend.
+
+# dockerhub
+
+in the CORRECT folder where the Dockerfile is, we use the following command:
+the tag must be the full correct path to the dockerhub repo
+and the refers to the root of the particular folder
+in /backend `docker build -t bazmurphy/docker-fullstack .`
+we build the image so we can push it to dockerhub
+
+then `docker login`
+
+then `docker push bazmurphy/docker-fullstack`
+
+then if we want to pull it from dockerhub `docker pull bazmurphy/docker-fullstack`
