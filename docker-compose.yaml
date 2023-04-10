@@ -1,0 +1,51 @@
+# docker compose creates the image as well as run the container for it
+
+# we write our instructions here to docker compose
+version: "2.17.2"
+# services - have multiple nested values to tell docker how to build the image and how to run the container for it
+# the services are the projects that we want images and containers for
+services:
+  # this doesn't have to be the same name as the folder
+  backend:
+    # this is to say how we will build the image, it needs to be a relative path to the folder where the dockerfile for that project is
+    # docker compose still uses the dockerfile we made to create the image for that service
+    # build: ./api
+    # build tells docker compose what to call our container when its run
+    build: ./backend
+    # container_name gives the container its name
+    container_name: myapp_backend_container
+    # this is how to add environment variables (it can also be done with a file using env_file:)
+    environment:
+      - PORT=4000
+    # port mapping
+    ports:
+      - "4000:4000"
+    # volumes to specify volumes that we want to create when we run the container
+    # but this time we don't need to specify the absolute path of the folder on our computer
+    # we just use a path relative to the docker-compose.yaml
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # when we run this file docker compose will look at the BUILD property of each SERVICE
+  # it will find the Dockerfile in those build paths and build images for EACH SERVICE
+  # it will automatically run those images to create a container, and those containers will be configured according to the properties and values we specified in the docker compose file
+
+  # Now we need to add the React frontend
+  frontend:
+    build: ./frontend
+    container_name: myapp_frontend_container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    # we need to start the container in interactive mode
+    # which is what we should do with react apps in Docker
+    # its the opposite of detached mode, and it means our container won't automatically shut down
+    # (!!! FROM MY INITIAL TESTING THESE SEEMS UNNCESSARY ???)
+    # stdin_open: true
+    # tty: true
+    # stdin_open: This flag keeps the standard input stream open on the container. It allows you to interact with the container's command line interface in real-time, which can be useful when debugging or troubleshooting. By default, Docker containers run with stdin closed, so you need to explicitly set this flag to true if you want to interact with the container via the command line.
+    # tty: This flag allocates a pseudo-tty for the container, which allows you to see the output of the container's command line interface in real-time. It makes the output easier to read by creating a terminal-like interface for the container's command line.
+    # In summary, these flags are used to enable interactive communication with the container's command line interface. This can be useful when developing or troubleshooting the application running in the container.

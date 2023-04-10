@@ -22,6 +22,21 @@
   {
     "id": 5,
     "author": "Baz",
-    "message": ":)"
+    "message": ":D"
+  },
+  {
+    "id": 6,
+    "author": "Person 2",
+    "message": "8)"
+  },
+  {
+    "id": 7,
+    "author": "Baz",
+    "message": ":P"
+  },
+  {
+    "id": 8,
+    "author": "Person 2",
+    "message": ":X"
   }
 ]

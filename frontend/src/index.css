@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  line-height: 1.6;
+  font-family: system-ui, sans-serif;
+}
+
+.App {
+  border: 2px solid coral;
+  padding: 10px;
+  background-color: hsla(120, 100%, 50%, 0.1);
+}
+
+h1 {
+  color: hsla(120, 100%, 90%);
+}
+
+ul {
+  padding: 0 5px;
+  list-style: none;
+  border: 2px solid hsl(16, 100%, 76%);
+}
+
+li {
+  display: grid;
+  grid-template-columns: 20px 80px 20px 200px;
+}
+
+.entry-id {
+  color: grey;
+}
+
+.entry-author {
+  color: hsl(120, 100%, 80%);
+  font-weight: 500;
+}
+
+.entry-separator {
+  color: grey;
+  font-weight: 500;
+}
+
+.entry-message {
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  border: 2px solid hsl(16, 100%, 76%);
+}
