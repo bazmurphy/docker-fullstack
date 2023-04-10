@@ -1,4 +1,4 @@
-# baz learning docker
+# Learning Docker by Baz Murphy
 
 # docker cli commands
 
